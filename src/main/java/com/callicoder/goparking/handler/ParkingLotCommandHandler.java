@@ -60,15 +60,58 @@ public class ParkingLotCommandHandler {
     }
 
 
-    public ParkingSlot leave(String slotNumber){
-        Integer slot=Integer.parseInt(slotNumber);
-        if(slot<0){
-            System.out.println("invalid slot "+slot);
-            return null;
+    public void leave(String slotNumber){
+        if(!isParkingLotCreated()){
+            System.out.println(PARKING_LOT_NOT_CREATED);
+        }else{
+            Integer slot=Integer.parseInt(slotNumber);
+            if(slot<0){
+                System.out.println("invalid slot "+slot);
+                return ;
+            }
+            ParkingSlot parkingSlot=parkingLot.leaveSlot(slot);
+            System.out.println(
+                String.format(PARKING_LOT_FREE_MESSAGE, parkingSlot.getSlotNumber())
+            );          
         }
-        ParkingSlot parkingSlot=parkingLot.leaveSlot(slot);
-        System.out.println("leaving");
-        return parkingSlot;
+    }
+    
+    public void slot_numbers_for_cars_with_colour(String color){
+        if(!isParkingLotCreated()){
+            System.out.println(PARKING_LOT_NOT_CREATED);
+        }else{
+            List<Integer>slotNumbers=parkingLot.getSlotNumbersByColor(color);            
+            for(Integer slot:slotNumbers){
+                System.out.println(SLOT_NO+slot);
+            }
+        }
+    }
+    public void registration_numbers_for_cars_with_colour(String color){
+        if(!isParkingLotCreated()){
+            System.out.println(PARKING_LOT_NOT_CREATED);
+        }else{
+            List<String>registrationNumbers=parkingLot.getRegistrationNumbersByColor(color);
+            if(registrationNumbers.size()>0){
+                System.out.println("Slot numbers for "+color+" are:");
+                for(String number:registrationNumbers){
+                    System.out.println(number);
+                }    
+            }else{
+                System.out.println("no registration number found");
+            }
+        }
+    }
+    public void slot_number_for_registration_number(String registrationNumber){
+        if(!isParkingLotCreated()){
+            System.out.println(PARKING_LOT_NOT_CREATED);            
+        }else{
+            Optional<Integer>slotNumber=parkingLot.getSlotNumberByRegistrationNumber(registrationNumber);
+            if(slotNumber.isEmpty()){
+                System.out.println(SLOT_NUMBER_NOT_FOUND+" "+registrationNumber);
+            }else{
+                System.out.println(SLOT_NO+slotNumber.get());
+            }
+        }
     }
     public void status() {
         if (!isParkingLotCreated()) {

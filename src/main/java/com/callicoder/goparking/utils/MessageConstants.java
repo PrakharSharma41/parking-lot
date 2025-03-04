@@ -14,4 +14,7 @@ public interface MessageConstants {
     String Color = "Colour";
     String DUPLICATE_VEHICLE_MESSAGE =
         "A car already parked with this registration number";
+    String PARKING_LOT_FREE_MESSAGE=
+    "Parking Slot %s is free";
+    String SLOT_NUMBER_NOT_FOUND="No slot found for %s number";
 }
