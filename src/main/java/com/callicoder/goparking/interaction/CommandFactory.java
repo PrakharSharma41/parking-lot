@@ -29,7 +29,7 @@ public class CommandFactory {
         cf.addCommand("leave", new LeaveCommand(parkingLotCommandHandler));
         cf.addCommand("registration_numbers_for_cars_with_colour", new RegistrationNumberForCarWithColor(parkingLotCommandHandler));
         cf.addCommand("slot_numbers_for_cars_with_colour", new SlotNumberForCarWithColor(parkingLotCommandHandler));
-        cf.addCommand("slot_number_for_registration_number", new SlotNumberForRegistrationNuber(parkingLotCommandHandler));
+        cf.addCommand("slot_number_for_registration_number", new SlotNumberForRegistrationNumber(parkingLotCommandHandler));
         return cf;
     }
 

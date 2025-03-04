@@ -3,10 +3,10 @@ package com.callicoder.goparking.interaction.commands;
 import com.callicoder.goparking.exceptions.InvalidParameterException;
 import com.callicoder.goparking.handler.ParkingLotCommandHandler;
 
-public class SlotNumberForRegistrationNuber implements Command{
+public class SlotNumberForRegistrationNumber implements Command{
         private ParkingLotCommandHandler parkingLotCommandHandler;
 
-    public SlotNumberForRegistrationNuber(ParkingLotCommandHandler parkingLotCommandHandler) {
+    public SlotNumberForRegistrationNumber(ParkingLotCommandHandler parkingLotCommandHandler) {
         this.parkingLotCommandHandler = parkingLotCommandHandler;
     }
     @Override
