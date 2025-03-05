@@ -77,7 +77,7 @@ public class ParkingLot {
 
         availableSlots.add(slot);
         occupiedSlots.remove(slot);
-
+        slotCarMapping.remove(slotNumber);
         Car car=slot.getCar();
         slot.clear();
         String registrationNumber=car.getRegistrationNumber();                
